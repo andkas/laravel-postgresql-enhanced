@@ -12,7 +12,7 @@ class VarbitType extends StringType
     /**
      * Gets an array of database types that map to this Doctrine type.
      */
-    public function getMappedDatabaseTypes(AbstractPlatform $platform)
+    public function getMappedDatabaseTypes(AbstractPlatform $platform): array
     {
         return match ($platform->getName()) {
             'pgsql', 'postgres', 'postgresql' => [$this->getName()],
@@ -31,7 +31,7 @@ class VarbitType extends StringType
     /**
      * Gets the SQL declaration snippet for a column of this type.
      */
-    public function getSQLDeclaration(array $column, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return $column['length'] ? "varbit({$column['length']})" : 'varbit';
     }

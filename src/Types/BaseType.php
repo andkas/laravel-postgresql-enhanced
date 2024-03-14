@@ -12,7 +12,7 @@ abstract class BaseType extends Type
     /**
      * Gets an array of database types that map to this Doctrine type.
      */
-    public function getMappedDatabaseTypes(AbstractPlatform $platform)
+    public function getMappedDatabaseTypes(AbstractPlatform $platform): array
     {
         return match ($platform->getName()) {
             'pgsql', 'postgres', 'postgresql' => [$this->getSQLDeclaration([], $platform)],
@@ -28,7 +28,7 @@ abstract class BaseType extends Type
     /**
      * Gets the SQL declaration snippet for a column of this type.
      */
-    public function getSQLDeclaration(array $column, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return $this->getName();
     }
