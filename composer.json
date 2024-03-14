@@ -1,5 +1,5 @@
 {
-    "name": "tpetry/laravel-postgresql-enhanced",
+    "name": "andkas/laravel-postgresql-enhanced",
     "description": "Support for many missing PostgreSQL specific features",
     "keywords": [
         "laravel",
